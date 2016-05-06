@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest package="net.yoogloo.friends"
+          xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <permission android:name="net.yoogloo.friends.provider.READWRITE"/>
+    <uses-permission android:name="net.yoogloo.friends.provider.READWRITE"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AppCompat">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".AddActivity"
+                  android:parentActivityName=".MainActivity"
+                  android:label="@string/add_friend_title" />
+        <activity android:name=".EditActivity"
+                  android:parentActivityName=".MainActivity"
+                  android:label="@string/edit_friend_title" />
+        <activity android:name=".SearchActivity"
+                  android:parentActivityName=".MainActivity"
+                  android:label="@string/search_friends_title" />
+
+        <provider
+            android:name="net.yoogloo.friends.FriendsProvider"
+            android:authorities="net.yoogloo.friends.provider"
+            android:exported="true"
+            android:readPermission="net.yoogloo.friends.provider.READWRITE"
+            android:writePermission="net.yoogloo.friends.provider.READWRITE"/>
+    </application>
+
+</manifest>
